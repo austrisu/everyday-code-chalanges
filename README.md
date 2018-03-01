@@ -32,3 +32,31 @@ function duplicateCount(text){
   return (match.length);
 }
 ```
+
+
+# Challange #2 (code wars)
+
+## Double Char
+
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+### Example
+```
+doubleChar("String") ==> "SSttrriinngg"
+doubleChar("Hello World") ==> "HHeelllloo  WWoorrlldd"
+doubleChar("1234!_ ") ==> "11223344!!__  "
+```
+
+### My solution
+```js
+function doubleChar(str) {
+  
+  //splits the string in to array, modifies each element 
+  //by adding same element twice, joins everithing in to the string
+  let copyStr = str.split('').
+                map((e) => `${e}${e}`).
+                join('');
+  
+  return copyStr;
+}
+```
