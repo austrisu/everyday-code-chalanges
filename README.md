@@ -123,3 +123,29 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
   }
   
 ```
+# Challange #4
+
+## Shoolace algorithm
+
+Izdomāt un aprakstīt algoritmu sekojošas problēmas atrisināšanai:
+Ir dota punktu virkne, kas apraksta kā tiek uzzīmēta figūra plaknē, jānoskaidro vai figūra tiek zīmēta
+pulksteņa rādītāja virzienā vai pret to.
+Piemēram: (5,10) (15,20) (20,7) ir pulksteņa rādītāja virzienā, bet (5,10) (20,7) (15,20) ir pretēji pulksteņa
+rādītāja virzienam. Piemēram: (4,3) (3,3) (3,5) (6,5) (6,3) (5,3) (5,2) (7,2) (7,6) (2,6) (2,2) (4,2) ir pretēji
+pulksteņa rādītāja virzienam.
+
+Figure out whitch way line is drawn in 2D space (clockwise or counter-clockwise).
+
+### Example
+
+(5,10) (15,20) (20,7) is drawn clockwise
+(5,10) (20,7) (15,20) is drawn counter-clockwise
+(4,3) (3,3) (3,5) (6,5) (6,3) (5,3) (5,2) (7,2) (7,6) (2,6) (2,2) (4,2) is drawn counter-clockwise
+
+### My solution
+
+```js
+
+
+
+```
