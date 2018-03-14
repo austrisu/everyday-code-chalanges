@@ -126,14 +126,6 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
 # Challange #4
 
 ## Shoolace algorithm
-
-Izdomāt un aprakstīt algoritmu sekojošas problēmas atrisināšanai:
-Ir dota punktu virkne, kas apraksta kā tiek uzzīmēta figūra plaknē, jānoskaidro vai figūra tiek zīmēta
-pulksteņa rādītāja virzienā vai pret to.
-Piemēram: (5,10) (15,20) (20,7) ir pulksteņa rādītāja virzienā, bet (5,10) (20,7) (15,20) ir pretēji pulksteņa
-rādītāja virzienam. Piemēram: (4,3) (3,3) (3,5) (6,5) (6,3) (5,3) (5,2) (7,2) (7,6) (2,6) (2,2) (4,2) ir pretēji
-pulksteņa rādītāja virzienam.
-
 Figure out whitch way line is drawn in 2D space (clockwise or counter-clockwise).
 
 ### Example
@@ -144,8 +136,44 @@ Figure out whitch way line is drawn in 2D space (clockwise or counter-clockwise)
 
 ### My solution
 
+Algorithm is used to calculate area of 2d shape. But in this case it is used to determine if 2d shape is drawn clockwise or counterclockwise.
+
+This algorithm do not work on shapes with line crossings
+
 ```js
 
+// ****************************
+// To solve this proglem gausian area aproach is used
+// ****************************
 
+// initial points of figure in x,y plain
+let points = [
+  [4,3], [3,3], [3,5], [6,5], [6,3], [5,3], [5,2], [7,2], [7,6], [2,6], [2,2], [4,2]
+];
+
+rotation(points);
+
+//works only for figures without line intersections
+function rotation(corners) {
+
+  let x = 0;
+  let y = 0;
+  
+  //loops trought all points
+  for (let i = 0; i < corners.length-1; i++) {
+    x = x + (corners[i][0] * corners[i + 1][1]);
+    y = y + (corners[i][1] * corners[i + 1][0]);
+  }
+
+ //determines rotation
+  if (x - y < 0) {
+    console.log("Clockwise");
+  } else if (x - y>0) {
+    console.log("Counterclockwise");
+  } else {
+    console.log("Smthing wrong")
+  }
+
+} 
 
 ```
