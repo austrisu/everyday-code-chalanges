@@ -270,4 +270,42 @@ function findUniq(arr) {
 }
 ```
 
+# Challange #6
+
+## Sort array by string length
+
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+For example, if this array were passed as an argument:
+
+`["Telescopes", "Glasses", "Eyes", "Monocles"]`
+
+Your function would return the following array:
+
+`["Eyes", "Glasses", "Monocles", "Telescopes"]`
+
+All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+
+### My solution
+
+```js
+function sortByLength (array) {
+  // Return an array containing the same strings, ordered from shortest to longest
+
+return array.map((e,i) => {
+
+             //creates objects for aech array item with array names and lengths
+              return { key    : e , 
+                       length : e.length}
+            })
+
+             //sorts by lengths
+            .sort((a, b) => a.length - b.length)
+             
+            //removes lengths, leaving only lengths
+            .map((e, i) => e.key)
+
+};
+
+```
 
