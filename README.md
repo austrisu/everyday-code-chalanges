@@ -453,3 +453,43 @@ function bind(fn, thisArg){
     }
 }
 ```
+# Challange 10
+
+## Description
+
+
+### My solution
+
+```js
+
+function isIsogram(str){
+  //...
+  c = []; //array with chars
+  r = true; //resault tro or false
+  
+  str.toLowerCase().split("").map(e => {
+
+  if(c.includes(e)){ //check if elemnt already in check array
+  	r = false; 	
+  }
+  c.push(e); //pushes elemnt to check array
+  return e;
+  })
+  
+  return r;
+}
+
+```
+
+
+### Best solution
+
+```js
+
+function isIsogram(str){ 
+  return !/(\w).*\1/i.test(str)
+}
+
+```
+
+
