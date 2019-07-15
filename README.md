@@ -481,6 +481,21 @@ function isIsogram(str){
 
 ```
 
+```py
+def is_isogram(string):
+    #your code here
+    
+    l = list(string.lower())
+    
+    sortedString = "".join(sorted(l));
+    
+    setOfSorted = "".join(sorted((set(sortedString)))) # gets dictionary with unique keys, sorts, joins to string
+    
+    return sortedString == setOfSorted
+    
+
+```
+
 
 ### Best solution
 
