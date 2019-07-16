@@ -507,4 +507,31 @@ function isIsogram(str){
 
 ```
 
+# Challange 11
+
+## Description
+You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+### My solution
+```js
+function getMiddle(s)
+{ 
+  if(s.length % 2 === 1){
+    return s[(s.length/2)-0.5] //returns middle letter
+  }else{
+   return s.substring((s.length/2)-1, (s.length/2)+1) //return two middle letters
+  }
+
+}
+```
+
+### Best solution
+
+```js
+function getMiddle(s)
+{
+  return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
+}
+```
+
 
