@@ -553,3 +553,48 @@ function addBinary(a,b) {
 ```
 
 
+# Challange #13
+
+## Description
+
+Given an array, find the int that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+
+## My solution
+
+```js
+
+function findOdd(A) {
+ 
+  let u = {}
+  
+  A.map(e=>{ u[e] = (u[e]) ? (u[e]+1) : 1 }) //pushes new values or updates values to {}
+  
+  let oddCount = Object.values(u).find(e => e%2 === 1) //gets odd count from value array
+  
+  let indexOfResoult = Object.values(u).indexOf(oddCount) //gets index of odd number in vallue array
+  
+  return parseInt(Object.keys(u)[indexOfResoult]); // based on index get resault from keys array and parse from string to int
+}
+
+```
+
+## Best solution
+
+```js
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+```
+
+OR
+
+```js
+
+function findOdd(A) {
+  return A.reduce(function(c,v){return c^v;},0);
+}
+
+```
+
