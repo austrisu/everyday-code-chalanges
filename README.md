@@ -1,4 +1,4 @@
-# Chalange #1 (code wars)
+# #1 (code wars)
 
 ## Count the number of Duplicates
 
@@ -34,7 +34,7 @@ function duplicateCount(text){
 ```
 
 
-# Challange #2 (code wars)
+# #2 (code wars)
 
 ## Double Char
 
@@ -61,7 +61,7 @@ function doubleChar(str) {
 }
 ```
 
-# Challange #3 (Code wars)
+# #3 (Code wars)
 
 ## Growing plant
 
@@ -123,7 +123,7 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
   }
   
 ```
-# Challange #4
+# #4
 
 ## Shoolace algorithm
 Figure out whitch way line is drawn in 2D space (clockwise or counter-clockwise).
@@ -177,7 +177,7 @@ function rotation(corners) {
 } 
 ```
 
-# Chalange #5
+# #5
 
 ## Hide phone numbers
 
@@ -237,7 +237,7 @@ function encryptNum(number) {
   : false; 
 }
 ```
-# Chalange #6
+# #6
 
 ## Find Unique number
 
@@ -270,7 +270,7 @@ function findUniq(arr) {
 }
 ```
 
-# Challange #6
+# #6
 
 ## Sort array by string length
 
@@ -309,7 +309,7 @@ return array.map((e,i) => {
 
 ```
 
-# Chalange #7
+# #7
 
 ```js
 
@@ -355,7 +355,7 @@ function guessingGame(amount){
 
 ```
 
-# Chalange #8
+# #8
 
 ```js
 /* 
@@ -408,7 +408,7 @@ function flip(fn, thisArg){
 }
 ```
 
-# Chalange #9
+# #9
 
 ```js
 /* 
@@ -453,7 +453,7 @@ function bind(fn, thisArg){
     }
 }
 ```
-# Challange 10
+# #10
 
 ## Description
 
@@ -507,7 +507,7 @@ function isIsogram(str){
 
 ```
 
-# Challange 11
+# #11
 
 ## Description
 You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
@@ -534,7 +534,7 @@ function getMiddle(s)
 }
 ```
 
-# Challange #12
+# #12
 
 ## Description
 
@@ -553,7 +553,7 @@ function addBinary(a,b) {
 ```
 
 
-# Challange #13
+# #13
 
 ## Description
 
@@ -595,6 +595,67 @@ OR
 function findOdd(A) {
   return A.reduce(function(c,v){return c^v;},0);
 }
+
+```
+
+# #14
+
+## Description
+
+You get an array of arrays.
+If you sort the arrays by their length, you will see, that their length-values are consecutive.
+But one array is missing!
+
+
+You have to write a method, that return the length of the missing array.
+```
+Example:
+[[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]] --> 3
+```
+If the array of arrays is null/nil or empty, the method should return 0.
+
+When an array in the array is null or empty, the method should return 0 too!
+There will always be a missing element and its length will be always between the given arrays. 
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have created other katas. Have a look if you like coding and challenges.
+
+
+
+## My solution
+
+```js
+
+function getLengthOfMissingArray(arrayOfArrays) {
+
+  //determines aray is null or consist of only one array
+  if(arrayOfArrays === null || arrayOfArrays.length === 0) return 0
+
+  //return 0 if array of arrays contains null
+  if(arrayOfArrays.indexOf(null) >= 0) return 0
+
+  //creates sorted array with lengths of arrays
+  let arrayOfArrayLengths = arrayOfArrays
+                                .map(e=>e.length)
+                                .sort((a,b)=> a - b)
+  //return if array contains empty array
+  if(arrayOfArrayLengths[0] === 0) return 0
+  
+  for(let i = 0; i < arrayOfArrayLengths.length-1; i++)
+    if((arrayOfArrayLengths[i+1]-arrayOfArrayLengths[i]) === 2 ) return arrayOfArrayLengths[i] + 1
+
+}
+
+```
+
+## Best solution
+
+```js
+
+tLengthOfMissingArray = a => a ? (a = a.map(e => e ? e.length : 0)).includes(0) ? 0 : a
+  .sort((x, y) => x - y)
+  .reduce((r, e, i, a) => r ? r : (e + 1) === a[i + 1] ? 0 : e + 1, 0) : 0;
 
 ```
 
