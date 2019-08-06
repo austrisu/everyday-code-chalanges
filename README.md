@@ -690,3 +690,76 @@ function isPangram(string){
 }
 
 ```
+
+# #16
+
+## Description
+
+
+## My solution
+
+```js
+function solution(input, markers) {
+
+let arr = input.split("\n")
+
+let solution = [];
+
+//iterates trougth just splited sentance parts
+for(e of arr){
+  let marker;
+  
+  //finds what marker to use
+  for(m of markers){
+    if(e.includes(m)){
+      marker = m
+    }
+  }
+  
+  //runs if any markers need to be used for string
+  if(marker != undefined){
+    let temp = e.split("").splice(0,e.indexOf(marker)).join("")
+  
+    solution.push(temp)
+  }else{
+    solution.push(e)
+  }
+}
+
+ return solution
+           .map(e=>{
+
+                  //removes " "
+                  if(e[e.length-1] === " ")  
+                    return e.split("").splice(0, e.length-1).join("");
+                  else
+                    return e
+
+                })
+            .join("\n")
+
+}
+
+```
+
+## Best solution
+
+```js
+function solution(input, markers){
+  return input.replace(new RegExp("\\s?[" + markers.join("") + "].*(\\n)?", "gi"), "$1");
+}
+
+```
+
+```js
+function solution(input, markers) {
+  return input.split('\n').map(
+    line => markers.reduce(
+      (line, marker) => line.split(marker)[0].trim(), line
+    )
+  ).join('\n')
+}
+
+```
+
+
