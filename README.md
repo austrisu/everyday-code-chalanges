@@ -762,4 +762,48 @@ function solution(input, markers) {
 
 ```
 
+# #17
+
+## Description
+
+Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters,
+
+each taken only once - coming from s1 or s2.
+Examples:
+```
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+```
+## My solution
+
+```js
+
+function longest(s1, s2) {
+  let s = s1 + s2;
+  
+  let set = new Set(s.split(""))
+  
+  return Array.from(set).sort().join("")
+}
+
+```
+
+## Best solution
+
+```js
+
+const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+
+```
+
+```js
+function longest(s1, s2) {
+  return Array.from(new Set(s1 + s2)).sort().join('');
+}
+
+```
 
